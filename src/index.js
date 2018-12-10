@@ -54,5 +54,13 @@ module.exports = {
         16
       );
     });
+  },
+  /**
+   * 获取字符长度，中文记为+2
+   * @param s
+   * @returns {number}
+   */
+  getStringLength: function(s) {
+    return s.replace(/[\u4e00-\u9fa5\uff00-\uffff]/g, "**").length;
   }
 };
