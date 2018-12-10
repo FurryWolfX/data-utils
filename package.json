@@ -1,13 +1,13 @@
 {
   "name": "@wolfx/data-utils",
+  "description": "utils for data",
   "version": "1.0.0",
   "main": "src/index.js",
   "author": "wolfx",
   "license": "MIT",
   "keywords": [
-    "datetime",
-    "nodejs",
-    "javascript"
+    "data",
+    "utils"
   ],
   "dependencies": {},
   "devDependencies": {

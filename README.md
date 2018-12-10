@@ -5,9 +5,10 @@
 ```javascript
 const DataUtils = require("@wolfx/data-utils");
 
-console.log(DataUtils.arrayToGroup([1,2,3,4,5,6], 2)); webpack.config.js
+console.log(DataUtils.arrayToGroup([1, 2, 3, 4, 5, 6], 2)); // [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ] ]
 console.log(DataUtils.thousandNumFormat(10000)); // 10,000.00
-console.log(DataUtils.queryStringToObject(webpack.config.js)); webpack.config.js
+console.log(DataUtils.queryStringToObject("?a=1&b=2")); // { a: '1', b: '2' }
+console.log(DataUtils.getGUID()); // 4e97b561-a5a9-49da-81d9-a2203ccf62f6
 ```
 
 直接使用：
@@ -15,18 +16,17 @@ console.log(DataUtils.queryStringToObject(webpack.config.js)); webpack.config.js
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <script src="../dist/DataUtils.js"></script>
-  <script>
-    console.log(DataUtils.arrayToGroup([1,2,3,4,5,6], 2)); // [ [ webpack.config.js, 2 ], [ 3, 4 ], [ 5, 6 ] ]
-    console.log(DataUtils.thousandNumFormat(10000)); // 10,000.00
-    console.log(DataUtils.queryStringToObject("?a=1&b=2")); // { a: '1', b: '2' }
-  </script>
-</head>
-<body>
-
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <script src="../dist/DataUtils.js"></script>
+    <script>
+      console.log(DataUtils.arrayToGroup([1, 2, 3, 4, 5, 6], 2)); // [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ] ]
+      console.log(DataUtils.thousandNumFormat(10000)); // 10,000.00
+      console.log(DataUtils.queryStringToObject("?a=1&b=2")); // { a: '1', b: '2' }
+      console.log(DataUtils.getGUID()); // 4e97b561-a5a9-49da-81d9-a2203ccf62f6
+    </script>
+  </head>
+  <body></body>
 </html>
 ```
