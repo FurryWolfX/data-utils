@@ -1,0 +1,15 @@
+{
+  "name": "@wolfx/data-utils",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "wolfx",
+  "license": "MIT",
+  "keywords": [
+    "datetime",
+    "nodejs",
+    "javascript"
+  ],
+  "dependencies": {
+    
+  }
+}
