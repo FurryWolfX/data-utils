@@ -1,7 +1,7 @@
 {
   "name": "@wolfx/data-utils",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "author": "wolfx",
   "license": "MIT",
   "keywords": [
@@ -9,7 +9,12 @@
     "nodejs",
     "javascript"
   ],
-  "dependencies": {
-    
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^4.27.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-3": "^6.24.1"
   }
 }
