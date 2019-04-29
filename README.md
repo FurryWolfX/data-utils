@@ -52,7 +52,7 @@ console.log(DataUtils.queryStringToObject("?a=1&b=2")); // { a: '1', b: '2' }
 ### 生成GUID
 
 ```javascript
-console.log(DataUtils.queryStringToObject("?a=1&b=2")); // { a: '1', b: '2' }
+console.log(DataUtils.getGUID()); // 4e97b561-a5a9-49da-81d9-a2203ccf62f6
 ```
 
 ### 字符长度统计（中文+2）
