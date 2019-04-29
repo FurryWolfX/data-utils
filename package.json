@@ -1,20 +1,21 @@
 {
   "name": "@wolfx/data-utils",
-  "description": "utils for data",
-  "version": "0.0.1",
-  "main": "src/index.js",
+  "description": "data utils",
+  "version": "0.0.2",
+  "main": "lib/index.js",
   "author": "wolfx",
   "license": "MIT",
   "keywords": [
-    "data",
     "utils"
   ],
   "dependencies": {},
   "devDependencies": {
-    "webpack": "^4.27.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
-    "babel-preset-stage-3": "^6.24.1"
+    "babel-preset-stage-3": "^6.24.1",
+    "prettier": "^1.16.4",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.3.1"
   }
 }
