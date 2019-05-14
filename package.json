@@ -1,8 +1,8 @@
 {
   "name": "@wolfx/data-utils",
   "description": "data utils",
-  "version": "0.1.0",
-  "main": "lib/index.js",
+  "version": "0.1.1",
+  "main": "dist/DataUtils.umd.js",
   "author": "wolfx",
   "license": "MIT",
   "keywords": [

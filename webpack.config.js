@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const path = require("path");
 const libraryName = "DataUtils";
+const filename = "DataUtils";
 
 const config = {
   entry: __dirname + "/lib/index.js",
@@ -10,19 +11,23 @@ const config = {
     publicPath: "/dist",
     library: libraryName,
     libraryTarget: "umd",
-    filename: "DataUtils.js",
+    filename: filename + ".umd.js",
+    globalObject: "this",
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         loader: "babel-loader",
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        options: {
+          presets: ["env"],
+        },
       },
-    ]
+    ],
   },
   resolve: {
-    extensions: ["*", ".js"]
-  }
+    extensions: ["*", ".js"],
+  },
 };
 module.exports = config;

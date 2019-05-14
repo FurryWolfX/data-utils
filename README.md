@@ -20,7 +20,7 @@ const DataUtils = require("@wolfx/data-utils");
   <head>
     <meta charset="UTF-8" />
     <title>Title</title>
-    <script src="../dist/DataUtils.js"></script>
+    <script src="../dist/DataUtils.umd.js"></script>
     <script>
       console.log(DataUtils.arrayToGroup([1, 2, 3, 4, 5, 6], 2)); // [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ] ]
     </script>
