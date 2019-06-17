@@ -61,6 +61,16 @@ console.log(DataUtils.getGUID()); // 4e97b561-a5a9-49da-81d9-a2203ccf62f6
 console.log(DataUtils.getStringLength("1个")); // 3
 ```
 
+### 对象深拷贝
+
+```javascript
+const a = {v : 1};
+const b = DataUtils.deepCopy(a);
+b.v = 2;
+console.log(a);
+console.log(b);
+```
+
 ### 树形数据转换，将扁平结构的数据转换成树型结构
 
 ```javascript
