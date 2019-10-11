@@ -38,6 +38,7 @@ class DataUtils {
 
   static getGUID() {
     return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, c => {
+      // @ts-ignore
       return (c === "x" ? (Math.random() * 16) | 0 : "r&0x3" | "0x8").toString(16);
     });
   }
@@ -87,7 +88,7 @@ class DataUtils {
    * @param cache
    * @returns {*}
    */
-  static deepCopy(obj, cache = []) {
+  static deepCopy(obj, cache: any[] = []) {
     // just return if obj is immutable value
     if (obj === null || typeof obj !== "object") {
       return obj;
@@ -129,4 +130,4 @@ class DataUtils {
   }
 }
 
-module.exports = DataUtils;
+export default DataUtils;

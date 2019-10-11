@@ -1,4 +1,4 @@
-const DataUtils = require("../lib/index");
+const DataUtils = require("../dist/DataUtils.umd");
 const a = {v : 1};
 const b = DataUtils.deepCopy(a);
 b.v = 2;

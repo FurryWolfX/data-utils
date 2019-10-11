@@ -3,6 +3,7 @@
   "description": "data utils",
   "version": "0.3.0",
   "main": "dist/DataUtils.umd.js",
+  "typings": "lib/index.ts",
   "author": "wolfx",
   "license": "MIT",
   "keywords": [
@@ -15,6 +16,8 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-3": "^6.24.1",
     "prettier": "^1.16.4",
+    "ts-loader": "^6.2.0",
+    "typescript": "^3.6.4",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.3.1"
   }

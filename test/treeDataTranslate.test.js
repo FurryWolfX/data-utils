@@ -1,4 +1,4 @@
-const DataUtils = require("../lib/index");
+const DataUtils = require("../dist/DataUtils.umd");
 
 const testArray = [
   { id: 1, label: "yyy" },
