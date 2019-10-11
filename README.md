@@ -91,32 +91,39 @@ console.log(b);
 
 ```javascript
 const testArray = [
-  { id: 1, label: "yyy" },
+  { id: 1, parentId: null, label: "yyy" },
   { id: 2, parentId: 1, label: "aaa" },
   { id: 3, parentId: 1, label: "bbb" },
   { id: 4, parentId: 2, label: "ccc" },
-  { id: 5, label: "ddd" },
+  { id: 5, parentId: null, label: "ddd" },
 ];
-console.log(DataUtils.treeDataTranslate(testArray));
+console.log(
+  JSON.stringify(
+    DataUtils.flatToTree(testArray, null, {
+      pidName: "parentId",
+      idName: "id",
+    }),
+  ),
+);
 ```
 
 ```json
 [
   {
     "id": 1,
+    "parentId": null,
     "label": "yyy",
     "children": [
       {
         "id": 2,
         "parentId": 1,
         "label": "aaa",
-        "_level": 2,
         "children": [
           {
             "id": 4,
             "parentId": 2,
             "label": "ccc",
-            "_level": 3
+            "children": []
           }
         ]
       },
@@ -124,14 +131,15 @@ console.log(DataUtils.treeDataTranslate(testArray));
         "id": 3,
         "parentId": 1,
         "label": "bbb",
-        "_level": 2
+        "children": []
       }
-    ],
-    "_level": 1
+    ]
   },
   {
     "id": 5,
-    "label": "ddd"
+    "parentId": null,
+    "label": "ddd",
+    "children": []
   }
 ]
 ```

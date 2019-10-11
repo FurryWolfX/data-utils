@@ -1,7 +1,7 @@
 {
   "name": "@wolfx/data-utils",
   "description": "data utils",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "main": "dist/DataUtils.umd.js",
   "typings": "lib/index.ts",
   "author": "wolfx",

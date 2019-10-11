@@ -1,3 +1,11 @@
+export type KeyValue<T> = {
+  [key: string]: T;
+};
+type FlatToTreeOption = {
+  idName: string;
+  pidName: string;
+};
+
 class DataUtils {
   /**
    * 将数组拆成N个一组
@@ -5,7 +13,7 @@ class DataUtils {
    * @param numberEveryGroup
    * @returns {Array}
    */
-  static arrayToGroup(array, numberEveryGroup) {
+  static arrayToGroup(array: any[], numberEveryGroup: number): any[] {
     let result = [];
     for (let i = 0, len = array.length; i < len; i += numberEveryGroup) {
       result.push(array.slice(i, i + numberEveryGroup));
@@ -18,7 +26,7 @@ class DataUtils {
    * @param v
    * @returns {string}
    */
-  static thousandNumFormat(v) {
+  static thousandNumFormat(v: any): string {
     if (v) {
       v = v.toFixed(2);
       v = parseFloat(v);
@@ -32,11 +40,7 @@ class DataUtils {
     }
   }
 
-  static queryStringToObject() {
-    console.error("Function queryStringToObject has been removed from new version. Please use qs module instead.");
-  }
-
-  static getGUID() {
+  static getGUID(): string {
     return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, c => {
       // @ts-ignore
       return (c === "x" ? (Math.random() * 16) | 0 : "r&0x3" | "0x8").toString(16);
@@ -48,47 +52,39 @@ class DataUtils {
    * @param s
    * @returns {number}
    */
-  static getStringLength(s) {
+  static getStringLength(s: string): number {
     return s.replace(/[\u4e00-\u9fa5\uff00-\uffff]/g, "**").length;
   }
 
   /**
    * 树形数据转换，将扁平结构的数据转换成树型结构
-   * @param data
-   * @param id
-   * @param pid
-   * @returns {Array}
    */
-  static treeDataTranslate(data, id = "id", pid = "parentId") {
-    const res = [];
-    const temp = {};
-    for (let i = 0; i < data.length; i++) {
-      temp[data[i][id]] = data[i];
-    }
-    for (let k = 0; k < data.length; k++) {
-      if (temp[data[k][pid]] && data[k][id] !== data[k][pid]) {
-        if (!temp[data[k][pid]]["children"]) {
-          temp[data[k][pid]]["children"] = [];
-        }
-        if (!temp[data[k][pid]]["_level"]) {
-          temp[data[k][pid]]["_level"] = 1;
-        }
-        data[k]["_level"] = temp[data[k][pid]]._level + 1;
-        temp[data[k][pid]]["children"].push(data[k]);
-      } else {
-        res.push(data[k]);
+  static flatToTree(
+    treeData: any,
+    parentId: any,
+    options: FlatToTreeOption = {
+      idName: "id",
+      pidName: "parentId",
+    },
+  ): any[] {
+    const treeArr = [];
+    for (let i = 0; i < treeData.length; i++) {
+      const node = treeData[i];
+      if (node[options.pidName] === parentId && parentId) {
+        const newNode = node;
+        newNode.children = DataUtils.flatToTree(treeData, node[options.idName], options);
+        treeArr.push(newNode);
       }
     }
-    return res;
+    return treeArr;
   }
 
   /**
    * 深拷贝
    * @param obj
    * @param cache
-   * @returns {*}
    */
-  static deepCopy(obj, cache: any[] = []) {
+  static deepCopy(obj, cache: any[] = []): any {
     // just return if obj is immutable value
     if (obj === null || typeof obj !== "object") {
       return obj;
@@ -114,18 +110,18 @@ class DataUtils {
 
     return copy;
   }
+
   /**
    * 比较版本号，如果v1>v2则返回true，否则false
-   * @param {Object} v1 服务端版本
-   * @param {Object} v2 客户端实际版本
-   * @returns {boolean}
+   * @param {String} v1 服务端版本
+   * @param {String} v2 客户端实际版本
    */
-  static compareVersion(v1, v2) {
-    v1 = v1.split(".");
-    v2 = v2.split(".");
-    for (let i = 0; i < v1.length; i++) {
-      if (parseInt(v1[i]) > parseInt(v2[i])) return true;
-      if (parseInt(v1[i]) < parseInt(v2[i])) return false;
+  static compareVersion(v1: string, v2: string): boolean {
+    const _v1 = v1.split(".");
+    const _v2 = v2.split(".");
+    for (let i = 0; i < _v1.length; i++) {
+      if (parseInt(_v1[i]) > parseInt(_v2[i])) return true;
+      if (parseInt(_v1[i]) < parseInt(_v2[i])) return false;
     }
   }
 }
