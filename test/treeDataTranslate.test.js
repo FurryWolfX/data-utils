@@ -1,4 +1,4 @@
-const DataUtils = require("../dist/DataUtils.umd");
+const DataUtils = require("../").default;
 
 const testArray = [
   { id: 1, parentId: null, label: "yyy" },

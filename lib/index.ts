@@ -60,7 +60,7 @@ class DataUtils {
    * 树形数据转换，将扁平结构的数据转换成树型结构
    */
   static flatToTree(
-    treeData: any,
+    treeData: any[],
     parentId: any,
     options: FlatToTreeOption = {
       idName: "id",
@@ -70,7 +70,7 @@ class DataUtils {
     const treeArr = [];
     for (let i = 0; i < treeData.length; i++) {
       const node = treeData[i];
-      if (node[options.pidName] === parentId && parentId) {
+      if (node[options.pidName] === parentId) {
         const newNode = node;
         newNode.children = DataUtils.flatToTree(treeData, node[options.idName], options);
         treeArr.push(newNode);

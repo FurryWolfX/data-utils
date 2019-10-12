@@ -9,7 +9,13 @@ npm install @wolfx/data-utils
 ```
 
 ```javascript
-const DataUtils = require("@wolfx/data-utils");
+const DataUtils = require("@wolfx/data-utils").default;
+```
+
+或
+
+```javascript
+import DataUtils from "@wolfx/data-utils";
 ```
 
 ### 标签引入直接使用：
@@ -24,7 +30,8 @@ const DataUtils = require("@wolfx/data-utils");
     <title>Title</title>
     <script src="../dist/DataUtils.umd.js"></script>
     <script>
-      console.log(DataUtils.arrayToGroup([1, 2, 3, 4, 5, 6], 2)); // [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ] ]
+      console.log(DataUtils.default.arrayToGroup([1, 2, 3, 4, 5, 6], 2));
+      // [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ] ]
     </script>
   </head>
   <body></body>
@@ -61,7 +68,7 @@ console.log(DataUtils.compareVersion("3.0.11", "3.0.12")); // false
 
 ### 生成 GUID
 
-输出符合规范的GUID。
+输出符合规范的 GUID。
 
 ```javascript
 console.log(DataUtils.getGUID()); // 4e97b561-a5a9-49da-81d9-a2203ccf62f6

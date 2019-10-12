@@ -1,4 +1,4 @@
-const DataUtils = require("../dist/DataUtils.umd");
+const DataUtils = require("../").default;
 
 console.log(DataUtils.arrayToGroup([1, 2, 3, 4, 5, 6], 2)); // [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ] ]
 console.log(DataUtils.thousandNumFormat(10000)); // 10,000.00

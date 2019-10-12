@@ -11,7 +11,7 @@ const config = {
     publicPath: "/dist",
     library: libraryName,
     libraryTarget: "umd",
-    libraryExport: "default",
+    // libraryExport: "default",
     filename: filename + ".umd.js",
     globalObject: "this",
   },
@@ -32,7 +32,7 @@ const config = {
     ],
   },
   resolve: {
-    extensions: ["*", ".js"],
+    extensions: ["*", ".ts"],
   },
 };
 module.exports = config;
