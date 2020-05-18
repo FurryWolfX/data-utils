@@ -14,7 +14,7 @@ class DataUtils {
    * @returns {Array}
    */
   static arrayToGroup(array: any[], numberEveryGroup: number): any[] {
-    let result = [];
+    let result: any[] = [];
     for (let i = 0, len = array.length; i < len; i += numberEveryGroup) {
       result.push(array.slice(i, i + numberEveryGroup));
     }
@@ -67,11 +67,11 @@ class DataUtils {
       pidName: "parentId",
     },
   ): any[] {
-    const treeArr = [];
+    const treeArr: any[] = [];
     for (let i = 0; i < treeData.length; i++) {
       const node = treeData[i];
       if (node[options.pidName] === parentId) {
-        const newNode = node;
+        const newNode: any = node;
         newNode.children = DataUtils.flatToTree(treeData, node[options.idName], options);
         treeArr.push(newNode);
       }
@@ -123,6 +123,7 @@ class DataUtils {
       if (parseInt(_v1[i]) > parseInt(_v2[i])) return true;
       if (parseInt(_v1[i]) < parseInt(_v2[i])) return false;
     }
+    return false;
   }
 }
 
