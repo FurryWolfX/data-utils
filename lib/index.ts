@@ -84,7 +84,7 @@ class DataUtils {
    * @param obj
    * @param cache
    */
-  static deepCopy(obj, cache: any[] = []): any {
+  static deepCopy(obj: any, cache: any[] = []): any {
     // just return if obj is immutable value
     if (obj === null || typeof obj !== "object") {
       return obj;
@@ -96,7 +96,7 @@ class DataUtils {
       return hit.copy;
     }
 
-    const copy = Array.isArray(obj) ? [] : {};
+    const copy: any = Array.isArray(obj) ? [] : {};
     // put the copy into cache at first
     // because we want to refer it in recursive deepCopy
     cache.push({
