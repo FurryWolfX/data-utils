@@ -10,12 +10,13 @@ npm install @wolfx/data-utils
 
 ```javascript
 const DataUtils = require("@wolfx/data-utils").default;
+const { SafeArray } = require("@wolfx/data-utils");
 ```
 
 或
 
 ```javascript
-import DataUtils from "@wolfx/data-utils";
+import DataUtils, { SafeArray } from "@wolfx/data-utils";
 ```
 
 ### 标签引入直接使用：
@@ -82,16 +83,6 @@ console.log(DataUtils.getGUID()); // 4e97b561-a5a9-49da-81d9-a2203ccf62f6
 console.log(DataUtils.getStringLength("1个")); // 3
 ```
 
-### 对象深拷贝
-
-```javascript
-const a = { v: 1 };
-const b = DataUtils.deepCopy(a);
-b.v = 2;
-console.log(a);
-console.log(b);
-```
-
 ### 树形数据转换，将扁平结构的数据转换成树型结构
 
 扁平结构转树结构。
@@ -149,4 +140,11 @@ console.log(
     "children": []
   }
 ]
+```
+
+### 安全的数组类型
+
+```javascript
+import DataUtils, { SafeArray } from "@wolfx/data-utils";
+console.log(new SafeArray(undefined)); // []
 ```

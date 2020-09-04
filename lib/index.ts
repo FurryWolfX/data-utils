@@ -26,15 +26,9 @@ class DataUtils {
    * @param v
    * @returns {string}
    */
-  static thousandNumFormat(v: any): string {
+  static thousandNumFormat(v: number): string {
     if (v) {
-      v = v.toFixed(2);
-      v = parseFloat(v);
-      v = v.toLocaleString();
-      if (v.split(".").length === 1) {
-        v += ".00";
-      }
-      return v;
+      return v.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     } else {
       return "0.00";
     }
@@ -79,37 +73,6 @@ class DataUtils {
     return treeArr;
   }
 
-  /**
-   * 深拷贝
-   * @param obj
-   * @param cache
-   */
-  static deepCopy(obj: any, cache: any[] = []): any {
-    // just return if obj is immutable value
-    if (obj === null || typeof obj !== "object") {
-      return obj;
-    }
-
-    // if obj is hit, it is in circular structure
-    const hit = cache.find(c => c.original === obj);
-    if (hit) {
-      return hit.copy;
-    }
-
-    const copy: any = Array.isArray(obj) ? [] : {};
-    // put the copy into cache at first
-    // because we want to refer it in recursive deepCopy
-    cache.push({
-      original: obj,
-      copy,
-    });
-
-    Object.keys(obj).forEach(key => {
-      copy[key] = DataUtils.deepCopy(obj[key], cache);
-    });
-
-    return copy;
-  }
 
   /**
    * 比较版本号，如果v1>v2则返回true，否则false
@@ -124,6 +87,25 @@ class DataUtils {
       if (parseInt(_v1[i]) < parseInt(_v2[i])) return false;
     }
     return false;
+  }
+}
+
+export class SafeArray {
+  constructor(data) {
+    if (Array.isArray(data)) {
+      return data;
+    } else if (typeof data === "string") {
+      if (data.length > 0 && data[0] === "[") {
+        return JSON.parse(data);
+      } else if (data.length > 0) {
+        return data.split(",");
+      } else {
+        return [];
+      }
+    } else {
+      // 其他情况均返回空数组
+      return [];
+    }
   }
 }
 
