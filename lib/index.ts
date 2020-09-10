@@ -91,7 +91,7 @@ class DataUtils {
 }
 
 export class SafeArray {
-  constructor(data) {
+  constructor(data: any) {
     if (Array.isArray(data)) {
       return data;
     } else if (typeof data === "string") {
