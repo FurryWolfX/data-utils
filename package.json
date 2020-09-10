@@ -1,7 +1,10 @@
 {
   "name": "@wolfx/data-utils",
   "description": "data utils",
-  "version": "1.1.1",
+  "version": "1.1.2",
+  "publishConfig": {
+    "registry": " https://registry.npmjs.org"
+  },
   "main": "dist/DataUtils.umd.js",
   "typings": "lib/index.ts",
   "author": "wolfx",

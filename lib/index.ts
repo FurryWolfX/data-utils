@@ -94,7 +94,7 @@ export class SafeArray {
   constructor(data: any) {
     if (Array.isArray(data)) {
       return data;
-    } else if (typeof data === "string") {
+    } else if (typeof data === "string" && data !== "") {
       if (data.length > 0 && data[0] === "[") {
         return JSON.parse(data);
       } else if (data.length > 0) {
