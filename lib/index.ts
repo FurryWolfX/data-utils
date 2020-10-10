@@ -90,8 +90,9 @@ class DataUtils {
   }
 }
 
-export class SafeArray {
+export class SafeArray extends Array{
   constructor(data: any) {
+    super();
     if (Array.isArray(data)) {
       return data;
     } else if (typeof data === "string" && data !== "") {
