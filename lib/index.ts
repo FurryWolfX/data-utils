@@ -90,22 +90,22 @@ class DataUtils {
   }
 }
 
-export class SafeArray extends Array{
+export class SafeArray<T = any> extends Array {
   constructor(data: any) {
     super();
     if (Array.isArray(data)) {
-      return data;
+      return data as T[];
     } else if (typeof data === "string" && data !== "") {
       if (data.length > 0 && data[0] === "[") {
-        return JSON.parse(data);
+        return JSON.parse(data) as T[];
       } else if (data.length > 0) {
-        return data.split(",");
+        return data.split(",") as string[];
       } else {
-        return [];
+        return [] as T[];
       }
     } else {
       // 其他情况均返回空数组
-      return [];
+      return [] as T[];
     }
   }
 }
